@@ -1,0 +1,102 @@
+### Localhost root
+GET http://localhost:3000
+
+### Swagger docs
+GET http://localhost:3000/api-docs
+
+
+### =========================
+### BOOKS ROUTES
+### =========================
+
+### Get all books
+GET http://localhost:3000/books
+
+### Get single book by ID
+GET http://localhost:3000/books/PASTE_BOOK_ID_HERE
+
+### Create book
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "Test Book Alpha",
+  "author": "Debug Master",
+  "genre": "Testing",
+  "publishedYear": 2025,
+  "pages": 123,
+  "rating": 5.0,
+  "inStock": true
+}
+
+### Update book
+PUT http://localhost:3000/books/PASTE_BOOK_ID_HERE
+Content-Type: application/json
+
+{
+  "title": "Test Book Alpha Updated",
+  "author": "Debug Master",
+  "genre": "Testing",
+  "publishedYear": 2026,
+  "pages": 150,
+  "rating": 4.8,
+  "inStock": false
+}
+
+### Delete book
+DELETE http://localhost:3000/books/PASTE_BOOK_ID_HERE
+
+### Invalid book POST test
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "Broken Book",
+  "author": "Debug Master"
+}
+
+
+### =========================
+### AUTHORS ROUTES
+### =========================
+
+### Get all authors
+GET http://localhost:3000/authors
+
+### Get single author by ID
+GET http://localhost:3000/authors/PASTE_AUTHOR_ID_HERE
+
+### Create author
+POST http://localhost:3000/authors
+Content-Type: application/json
+
+{
+  "firstName": "Debug",
+  "lastName": "Master",
+  "birthYear": 1990,
+  "country": "CodeLand",
+  "awards": "Best Debugger Award"
+}
+
+### Update author
+PUT http://localhost:3000/authors/PASTE_AUTHOR_ID_HERE
+Content-Type: application/json
+
+{
+  "firstName": "Debug",
+  "lastName": "Master Updated",
+  "birthYear": 1991,
+  "country": "CodeLand",
+  "awards": "Top API Award"
+}
+
+### Delete author
+DELETE http://localhost:3000/authors/PASTE_AUTHOR_ID_HERE
+
+### Invalid author POST test
+POST http://localhost:3000/authors
+Content-Type: application/json
+
+{
+  "firstName": "Debug"
+}
