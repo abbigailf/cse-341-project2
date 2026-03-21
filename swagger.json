@@ -1,0 +1,371 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Library API",
+    "version": "1.0.0",
+    "description": "API for managing books and authors"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "summary": "Get all books",
+        "responses": {
+          "200": {
+            "description": "Books retrieved successfully"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new book",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "author": { "type": "string" },
+                  "genre": { "type": "string" },
+                  "publishedYear": { "type": "integer" },
+                  "pages": { "type": "integer" },
+                  "rating": { "type": "number" },
+                  "inStock": { "type": "boolean" }
+                },
+                "required": [
+                  "title",
+                  "author",
+                  "genre",
+                  "publishedYear",
+                  "pages",
+                  "rating",
+                  "inStock"
+                ]
+              },
+              "example": {
+                "title": "Test Book Alpha",
+                "author": "Debug Master",
+                "genre": "Testing",
+                "publishedYear": 2025,
+                "pages": 123,
+                "rating": 5.0,
+                "inStock": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Book created"
+          },
+          "400": {
+            "description": "Invalid input data"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "summary": "Get a book by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Book retrieved successfully"
+          },
+          "400": {
+            "description": "Invalid book ID"
+          },
+          "404": {
+            "description": "Book not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "author": { "type": "string" },
+                  "genre": { "type": "string" },
+                  "publishedYear": { "type": "integer" },
+                  "pages": { "type": "integer" },
+                  "rating": { "type": "number" },
+                  "inStock": { "type": "boolean" }
+                },
+                "required": [
+                  "title",
+                  "author",
+                  "genre",
+                  "publishedYear",
+                  "pages",
+                  "rating",
+                  "inStock"
+                ]
+              },
+              "example": {
+                "title": "Test Book Alpha",
+                "author": "Debug Master",
+                "genre": "Testing",
+                "publishedYear": 2025,
+                "pages": 123,
+                "rating": 5.0,
+                "inStock": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Book updated"
+          },
+          "400": {
+            "description": "Invalid ID or input data"
+          },
+          "404": {
+            "description": "Book not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Book deleted"
+          },
+          "400": {
+            "description": "Invalid book ID"
+          },
+          "404": {
+            "description": "Book not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/authors": {
+      "get": {
+        "summary": "Get all authors",
+        "responses": {
+          "200": {
+            "description": "Authors retrieved successfully"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new author",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "birthYear": { "type": "integer" },
+                  "country": { "type": "string" },
+                  "awards": { "type": "string" }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "birthYear",
+                  "country",
+                  "awards"
+                ]
+              },
+              "example": {
+                "firstName": "Debug",
+                "lastName": "Master",
+                "birthYear": 1990,
+                "country": "CodeLand",
+                "awards": "Best Debugger Award"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Author created"
+          },
+          "400": {
+            "description": "Invalid input data"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/authors/{id}": {
+      "get": {
+        "summary": "Get an author by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Author retrieved successfully"
+          },
+          "400": {
+            "description": "Invalid author ID"
+          },
+          "404": {
+            "description": "Author not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an author",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "birthYear": { "type": "integer" },
+                  "country": { "type": "string" },
+                  "awards": { "type": "string" }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "birthYear",
+                  "country",
+                  "awards"
+                ]
+              },
+              "example": {
+                "firstName": "Debug",
+                "lastName": "Master",
+                "birthYear": 1990,
+                "country": "CodeLand",
+                "awards": "Best Debugger Award"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Author updated"
+          },
+          "400": {
+            "description": "Invalid ID or input data"
+          },
+          "404": {
+            "description": "Author not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an author",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Author deleted"
+          },
+          "400": {
+            "description": "Invalid author ID"
+          },
+          "404": {
+            "description": "Author not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  }
+}
