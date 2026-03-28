@@ -7,21 +7,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "https://cse-341-project2-1nop.onrender.com/"
     },
     {
-      "url": "https://cse-341-project2-1nop.onrender.com/"
+    "url": "http://localhost:3000"
     }
   ],
-  "components": {
-    "securitySchemes": {
-      "githubAuth": {
-        "type": "apiKey",
-        "in": "cookie",
-        "name": "connect.sid"
-      }
-    }
-  },
   "paths": {
     "/books": {
       "get": {
@@ -37,11 +28,6 @@
       },
       "post": {
         "summary": "Create a new book",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -125,11 +111,6 @@
       },
       "put": {
         "summary": "Update a book",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "id",
@@ -197,11 +178,6 @@
       },
       "delete": {
         "summary": "Delete a book",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "id",
@@ -245,11 +221,6 @@
       },
       "post": {
         "summary": "Create a new author",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -327,11 +298,6 @@
       },
       "put": {
         "summary": "Update an author",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "id",
@@ -393,11 +359,6 @@
       },
       "delete": {
         "summary": "Delete an author",
-        "security": [
-          {
-            "githubAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "id",
